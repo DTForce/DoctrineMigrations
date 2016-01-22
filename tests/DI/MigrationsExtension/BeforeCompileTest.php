@@ -63,11 +63,6 @@ final class BeforeCompileTest extends PHPUnit_Framework_TestCase
 		$applicationDefinition = $this->getDefinitionByType(Application::class);
 
 		$this->assertCount(6, $applicationDefinition->getSetup());
-		$this->matchDefinitionSetupStatement(
-			$applicationDefinition->getSetup()[0],
-			'add',
-			['@2_Doctrine_DBAL_Migrations_Tools_Console_Command_DiffCommand']
-		);
 	}
 
 
