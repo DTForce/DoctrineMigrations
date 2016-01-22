@@ -1,11 +1,13 @@
 <?php
 
 /**
- * This file is part of Zenify
+ * This file is part of DTForce\DoctrineMigrations
+ *
+ * Copyright (c) 2016 DTForce (http://www.dtforce.com)
  * Copyright (c) 2014 Tomas Votruba (http://tomasvotruba.cz)
  */
 
-namespace Zenify\DoctrineMigrations\Exception\DI;
+namespace DTForce\DoctrineMigrations\Exception\DI;
 
 use Exception;
 

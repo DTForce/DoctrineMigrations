@@ -1,21 +1,20 @@
 {
-	"name": "zenify/doctrine-migrations",
-	"description": "Implementation of Doctrine Migrations to Nette",
+	"name": "dtforce/doctrine-migrations4nette",
+	"description": "Implementation of Doctrine Migrations for Nette",
 	"license": "MIT",
 	"authors": [
-		{ "name": "Tomáš Votruba", "homepage": "http://tomasvotruba.cz" }
+		{ "name": "Tomáš Votruba", "homepage": "http://tomasvotruba.cz" },
+		{ "name": "DTForce - Jan Mares", "homepage": "http://www.dtforce.com" }
 	],
 	"require": {
 		"php": ">=5.6",
 		"doctrine/migrations": "~1.0",
 		"nette/di": "~2.3",
-		"symfony/console": "~2.7|~3.0",
-		"symnedi/event-dispatcher": "~0.3.1"
+		"symfony/console": "~2.7|~3.0"
 	},
 	"require-dev": {
-		"kdyby/console": "~2.4",
-		"kdyby/events": "~2.4",
-		"kdyby/doctrine": "~2.3|~3.0",
+		"dtforce/nette-console": "dev-master",
+		"dtforce/nette-doctrine": "dev-master",
 		"nette/bootstrap": "~2.3",
 		"tracy/tracy": "~2.3"
 	},

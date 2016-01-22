@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests\Entity;
+namespace DTForce\DoctrineMigrations\Tests\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

@@ -1,11 +1,12 @@
 <?php
 
 /**
- * This file is part of Zenify
+ * This file is part of DTForce\DoctrineMigrations
+ *
  * Copyright (c) 2014 Tomas Votruba (http://tomasvotruba.cz)
  */
 
-namespace Zenify\DoctrineMigrations;
+namespace DTForce\DoctrineMigrations;
 
 use Doctrine\DBAL\Migrations\OutputWriter as DoctrineOutputWriter;
 use Symfony\Component\Console\Output\ConsoleOutput;

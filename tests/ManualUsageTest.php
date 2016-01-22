@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests;
+namespace DTForce\DoctrineMigrations\Tests;
 
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\Console\Application;
@@ -29,6 +29,7 @@ final class ManualUsageTest extends PHPUnit_Framework_TestCase
 		$input = new ArrayInput(['command' => 'migrations:status']);
 		$output = new BufferedOutput;
 
+		$this->consoleApplication->setAutoExit(false);
 		$status = $this->consoleApplication->run($input, $output);
 
 		$this->assertSame(0, $status);
@@ -43,6 +44,7 @@ final class ManualUsageTest extends PHPUnit_Framework_TestCase
 
 		$output = new BufferedOutput;
 
+		$this->consoleApplication->setAutoExit(false);
 		$status = $this->consoleApplication->run($input, $output);
 		$this->assertSame(0, $status);
 	}

@@ -37,12 +37,6 @@ Open your CLI and run command (based on `DTForce\NetteConsole` integration):
 php bin/console
 ```
 
-And then you should see all available commands:
-
-![CLI commands](cli-commands.png)
-
-
-
 ### Migrate changes to database
 
 If you want to migrate existing migration to your database, just run migrate commmand:

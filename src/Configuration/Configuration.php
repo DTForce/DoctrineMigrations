@@ -1,21 +1,27 @@
 <?php
 
 /**
- * This file is part of Zenify
+ * This file is part of DTForce\DoctrineMigrations
+ *
+ * Copyright (c) 2016 DTForce (http://www.dtforce.com)
  * Copyright (c) 2014 Tomas Votruba (http://tomasvotruba.cz)
  */
 
-namespace Zenify\DoctrineMigrations\Configuration;
+namespace DTForce\DoctrineMigrations\Configuration;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Migrations\Configuration\Configuration as BaseConfiguration;
 use Doctrine\DBAL\Migrations\OutputWriter;
+use DTForce\DoctrineMigrations\Exception\Configuration\MigrationClassNotFoundException;
 use Nette\DI\Container;
-use Zenify\DoctrineMigrations\Exception\Configuration\MigrationClassNotFoundException;
 
 
 final class Configuration extends BaseConfiguration
 {
+
+	/** @var Container  */
+	private $container;
+
 
 	public function __construct(Container $container, Connection $connection, OutputWriter $outputWriter = NULL)
 	{
@@ -81,6 +87,8 @@ final class Configuration extends BaseConfiguration
 
 	/**
 	 * @param string $class
+	 *
+	 * @throws MigrationClassNotFoundException
 	 */
 	private function ensureMigrationClassExists($class)
 	{

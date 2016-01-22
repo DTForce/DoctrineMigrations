@@ -1,18 +1,18 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests\Configuration;
+namespace DTForce\DoctrineMigrations\Tests\Configuration;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Migrations\Configuration\Configuration;
 use Doctrine\DBAL\Migrations\Version;
+use DTForce\DoctrineMigrations\Configuration\Configuration as ZenifyConfiguration;
+use DTForce\DoctrineMigrations\Exception\Configuration\MigrationClassNotFoundException;
+use DTForce\DoctrineMigrations\Tests\Configuration\ConfigurationSource\SomeService;
+use DTForce\DoctrineMigrations\Tests\ContainerFactory;
+use DTForce\DoctrineMigrations\Tests\Migrations\Version123;
 use Nette\DI\Container;
 use PHPUnit_Framework_TestCase;
-use Zenify\DoctrineMigrations\Configuration\Configuration as ZenifyConfiguration;
-use Zenify\DoctrineMigrations\Exception\Configuration\MigrationClassNotFoundException;
-use Zenify\DoctrineMigrations\Tests\Configuration\ConfigurationSource\SomeService;
-use Zenify\DoctrineMigrations\Tests\ContainerFactory;
-use Zenify\DoctrineMigrations\Tests\Migrations\Version123;
 
 
 final class ConfigurationTest extends PHPUnit_Framework_TestCase
@@ -28,10 +28,6 @@ final class ConfigurationTest extends PHPUnit_Framework_TestCase
 	{
 		$container = (new ContainerFactory)->create();
 		$this->configuration = $container->getByType(Configuration::class);
-
-		$this->configuration->registerMigrationsFromDirectory(
-			$this->configuration->getMigrationsDirectory()
-		);
 	}
 
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests\DI\MigrationsExtension;
+namespace DTForce\DoctrineMigrations\Tests\DI\MigrationsExtension;
 
 use Assert\InvalidArgumentException;
+use DTForce\DoctrineMigrations\Configuration\Configuration;
+use DTForce\DoctrineMigrations\DI\MigrationsExtension;
 use Nette\DI\Compiler;
 use Nette\DI\ContainerBuilder;
 use PHPUnit_Framework_TestCase;
 use Symnedi\EventDispatcher\DI\EventDispatcherExtension;
-use Zenify\DoctrineMigrations\Configuration\Configuration;
-use Zenify\DoctrineMigrations\DI\MigrationsExtension;
 
 
 class LoadConfigurationTest extends PHPUnit_Framework_TestCase
@@ -26,7 +26,6 @@ class LoadConfigurationTest extends PHPUnit_Framework_TestCase
 		$containerBuilder->parameters = ['appDir' => __DIR__];
 
 		$compiler = new Compiler($containerBuilder);
-		$compiler->addExtension('events', new EventDispatcherExtension);
 
 		$this->extension = new MigrationsExtension;
 		$this->extension->setCompiler($compiler, 'migrations');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests;
+namespace DTForce\DoctrineMigrations\Tests;
 
 use Nette\Configurator;
 use Nette\DI\Container;
@@ -25,7 +25,6 @@ final class ContainerFactory
 	{
 		$configurator = new Configurator;
 		$configurator->setTempDirectory(TEMP_DIR);
-		$configurator->enableDebugger(TEMP_DIR . '/log');
 		$configurator->addConfig($config);
 		return $configurator->createContainer();
 	}

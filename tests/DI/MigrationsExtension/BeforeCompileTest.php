@@ -1,8 +1,10 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests\DI\MigrationsExtension;
+namespace DTForce\DoctrineMigrations\Tests\DI\MigrationsExtension;
 
 use Doctrine\DBAL\Migrations\Tools\Console\Command\ExecuteCommand;
+use DTForce\DoctrineMigrations\Configuration\Configuration;
+use DTForce\DoctrineMigrations\DI\MigrationsExtension;
 use Nette\DI\Compiler;
 use Nette\DI\ContainerBuilder;
 use Nette\DI\ServiceDefinition;
@@ -10,8 +12,6 @@ use Nette\DI\Statement;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\Console\Application;
 use Symnedi\EventDispatcher\DI\EventDispatcherExtension;
-use Zenify\DoctrineMigrations\Configuration\Configuration;
-use Zenify\DoctrineMigrations\DI\MigrationsExtension;
 
 
 final class BeforeCompileTest extends PHPUnit_Framework_TestCase
@@ -37,7 +37,6 @@ final class BeforeCompileTest extends PHPUnit_Framework_TestCase
 		$this->containerBuilder->addDefinition('console', (new ServiceDefinition)->setClass(Application::class));
 
 		$compiler = new Compiler($this->containerBuilder);
-		$compiler->addExtension('eventDispatcher', new EventDispatcherExtension);
 
 		$this->extension->setCompiler($compiler, 'migrations');
 		$this->extension->loadConfiguration();

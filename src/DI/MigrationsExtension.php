@@ -1,19 +1,18 @@
 <?php
 
 /**
- * This file is part of Zenify
+ * This file is part of DTForce\DoctrineMigrations
+ *
+ * Copyright (c) 2016 DTForce (http://www.dtforce.com)
  * Copyright (c) 2014 Tomas Votruba (http://tomasvotruba.cz)
  */
 
-namespace Zenify\DoctrineMigrations\DI;
+namespace DTForce\DoctrineMigrations\DI;
 
 use Doctrine\DBAL\Migrations\Tools\Console\Command\AbstractCommand;
+use DTForce\DoctrineMigrations\Configuration\Configuration;
 use Nette\DI\CompilerExtension;
 use Symfony\Component\Console\Application;
-use Symnedi\EventDispatcher\DI\EventDispatcherExtension;
-use Zenify\DoctrineMigrations\CodeStyle\CodeStyle;
-use Zenify\DoctrineMigrations\Configuration\Configuration;
-use Zenify\DoctrineMigrations\Exception\DI\MissingExtensionException;
 
 
 final class MigrationsExtension extends CompilerExtension
@@ -25,8 +24,7 @@ final class MigrationsExtension extends CompilerExtension
 	private $defaults = [
 		'table' => 'doctrine_migrations',
 		'directory' => '%appDir%/../migrations',
-		'namespace' => 'Migrations',
-		'codingStandard' => CodeStyle::INDENTATION_TABS
+		'namespace' => 'Migrations'
 	];
 
 
@@ -35,8 +33,6 @@ final class MigrationsExtension extends CompilerExtension
 	 */
 	public function loadConfiguration()
 	{
-		$this->ensureSymnediEventDispatcherExtensionIsRegistered();
-
 		$containerBuilder = $this->getContainerBuilder();
 
 		$this->compiler->parseServices(
@@ -45,10 +41,6 @@ final class MigrationsExtension extends CompilerExtension
 		);
 
 		$config = $this->getValidatedConfig();
-
-		$containerBuilder->addDefinition($this->prefix('codeStyle'))
-			->setClass(CodeStyle::class)
-			->setArguments([$config['codingStandard']]);
 
 		$this->addConfigurationDefinition($config);
 	}
@@ -74,7 +66,8 @@ final class MigrationsExtension extends CompilerExtension
 			->setClass(Configuration::class)
 			->addSetup('setMigrationsTableName', [$config['table']])
 			->addSetup('setMigrationsDirectory', [$config['directory']])
-			->addSetup('setMigrationsNamespace', [$config['namespace']]);
+			->addSetup('setMigrationsNamespace', [$config['namespace']])
+			->addSetup('registerMigrationsFromDirectory', [$config['directory']]);
 	}
 
 
@@ -107,34 +100,9 @@ final class MigrationsExtension extends CompilerExtension
 		$configuration = $this->getConfig($this->defaults);
 		$this->validateConfig($configuration);
 
-		$configuration = $this->keepBcForDirsOption($configuration);
 		$configuration['directory'] = $this->getContainerBuilder()->expand($configuration['directory']);
 
 		return $configuration;
-	}
-
-
-	/**
-	 * @deprecated Old `dirs` option to be removed in 3.0, use `directory` instead.
-	 *
-	 * @return array
-	 */
-	private function keepBcForDirsOption(array $configuration)
-	{
-		if (isset($configuration['dirs']) && count($configuration['dirs'])) {
-			$configuration['directory'] = reset($configuration['dirs']);
-		}
-		return $configuration;
-	}
-
-
-	private function ensureSymnediEventDispatcherExtensionIsRegistered()
-	{
-		if ( ! $this->compiler->getExtensions(EventDispatcherExtension::class)) {
-			throw new MissingExtensionException(
-				sprintf('Please register required extension "%s" to your config.', EventDispatcherExtension::class)
-			);
-		}
 	}
 
 }

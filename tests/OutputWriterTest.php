@@ -1,11 +1,11 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests;
+namespace DTForce\DoctrineMigrations\Tests;
 
+use DTForce\DoctrineMigrations\OutputWriter;
 use PHPUnit_Framework_Assert;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Zenify\DoctrineMigrations\OutputWriter;
 
 
 class OutputWriterTest extends PHPUnit_Framework_TestCase

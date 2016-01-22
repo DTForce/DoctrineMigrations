@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests\Configuration\ConfigurationSource;
+namespace DTForce\DoctrineMigrations\Tests\Configuration\ConfigurationSource;
 
 
 class SomeService

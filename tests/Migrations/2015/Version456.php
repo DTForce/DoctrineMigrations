@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenify\DoctrineMigrations\Tests\Migrations;
+namespace DTForce\DoctrineMigrations\Tests\Migrations;
 
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
