@@ -20,12 +20,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Zenify\\DoctrineMigrations\\": "src"
+			"DTForce\\DoctrineMigrations\\": "src"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Zenify\\DoctrineMigrations\\Tests\\": "tests"
+			"DTForce\\DoctrineMigrations\\Tests\\": "tests"
 		}
 	}
 }
