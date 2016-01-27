@@ -1,0 +1,28 @@
+<?php
+
+namespace <namespace>;
+
+use Doctrine\DBAL\Migrations\AbstractMigration;
+use Doctrine\DBAL\Schema\Schema;
+
+
+/**
+ * TODO Auto-generated Migration: Please modify to your needs!
+ */
+class Version<version> extends AbstractMigration
+{
+
+	public function up(Schema $schema)
+	{
+		//TODO this up() migration is auto-generated, please modify it to your needs
+<up>
+	}
+
+
+	public function down(Schema $schema)
+	{
+		//TODO this down() migration is auto-generated, please modify it to your needs
+<down>
+	}
+
+}

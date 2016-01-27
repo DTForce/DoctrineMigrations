@@ -3,7 +3,7 @@ services:
 
 	# commands
 	- Doctrine\DBAL\Migrations\Tools\Console\Command\ExecuteCommand
-	- Doctrine\DBAL\Migrations\Tools\Console\Command\DiffCommand
+	- DTForce\DoctrineMigrations\Tools\Console\DiffCommand
 	- Doctrine\DBAL\Migrations\Tools\Console\Command\GenerateCommand
 	- Doctrine\DBAL\Migrations\Tools\Console\Command\MigrateCommand
 	- Doctrine\DBAL\Migrations\Tools\Console\Command\StatusCommand
